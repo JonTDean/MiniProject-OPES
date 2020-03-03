@@ -4,8 +4,8 @@
         @import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
 
 :root{
-    --grid-height: 400px;
-    --grid-width: 900px;
+    --grid-height: 640px;
+    --grid-width: 640px;
 }
 
 * {
@@ -50,6 +50,7 @@ html, body {
                 font-size: 50px;
                 margin-top: 10px;
                 margin-bottom: 10px; 
+                padding-right: 100px;
             }
 
         /* Right Side Styles */
@@ -67,26 +68,36 @@ html, body {
 /* Interactive Area*/
     /* Viewport Area */
         div#area_viewport{
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
+            padding-right: 370px;
         }
 
     /* GRID STYLING*/
         /* Center The Grid  GRABBED FROM: https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
-
+        /* Center CSS */
+            span#center{
+                margin: 20px 20px 20px 20px;
+                width:  var(--grid-width);
+                height: var(--grid-height);
+            }
 
         /* Grid Parent CSS Styles */
             #container{
                 display: grid;
-                margin-top: 20px;
+                margin: 0 20px 20px 20px;
                 width:  var(--grid-width);
                 height: var(--grid-height);
                 grid-template-columns: repeat(16,40px) ;
+
             }
 
             div.boxClass{
                 background:#e0d8de;
             }
+        
 
         /* OnHover Color Change */
             div.hover{
@@ -96,10 +107,7 @@ html, body {
             div#menus{
                 display: flex;
                 flex-direction: column;
-                float:left;
-                padding-left: 300px;
                 margin-right: 30px;
-                position:relative;
             }
         /* Button Menu CSS Styles */
             div#menu_buttons{
@@ -148,6 +156,7 @@ html, body {
             }
             
             div#menu_customGridSize p{
+                font-family: Oxanium;
                 color: white;
                 padding-bottom: 20px;
             }
@@ -204,6 +213,7 @@ https://www.freecodecamp.org/news/how-to-center-things-with-style-in-css-dc87b75
 https://www.w3schools.com/css/css_align.asp
 https://stackoverflow.com/questions/4108726/how-to-spread-elements-horizontally-evenly
 http://jsfiddle.net/hQA6u/1/ <-- WORD WRAP FOR TEXT SPILLING OUT OF DIV
+https://css-tricks.com/equidistant-objects-with-css/ <-- EVENLY SPACE HEADER TEXT
 
 Grid:
 https://stackoverflow.com/questions/23026624/shrink-everything-in-a-div    <--USED FOR SCALING

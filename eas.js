@@ -1,13 +1,13 @@
-//Div Generator
+//r================================Div Generatorr================================
 function divGen(){
 
     //Generates a static amount of divs filled with the set properties.
     for( i = 0 ; i < 256; i++ ){
         var box = document.createElement("div"); //creates a box variable that creates a div element.
 
-        box.style.width = "40px";
-        box.style.height = "37px";
-        box.style.border = "1px solid black";
+        box.style.width = "37.5px";
+        box.style.height = "37.5px";
+        box.style.border = "2px solid black";
         box.className = "boxClass";
         
         document.getElementById("container").appendChild(box); //Grabs the element by ID and adds a div to it with the above properties.
@@ -17,10 +17,11 @@ function divGen(){
 divGen();
 //window.onload = load_divGen => { divGen();}; // When the pages loads, it loads the divGen() function.
 
+//================================Class Changer================================
 // Variables for Class Changer
 var boxClass = document.querySelectorAll('.boxClass'); // Grabs an element with the boxClass class
 
-//Class Changer
+//Class Changer Function
 function classChanger(){
     for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on the amount of elements with that class
         boxClass[i].addEventListener('mouseover', (boxClass) => {
@@ -38,8 +39,41 @@ function classChanger(){
 
 classChanger();
 
-//Button Event
+//================================Button Events================================
+//Button Event Variables
+    //clearGrid Variables
+btnClearGrid = document.querySelector('#button_clearGrid');
+btnClearGrid.addEventListener('click', (clearGrid));
+    //newGrid Variables
+    btnNewGrid = document.querySelector('"button_newGrid')
+//Button Event Functions
+    //clearGrid
+function clearGrid(){
+    for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on the amount of elements with that class
+            boxClass[i].classList.remove('hover'); // *1
+    }
+}
+clearGrid();
 
+
+/* Made an Erase Button *//*
+
+btnEraseButton = document.querySelector('#button_eraseButton');
+
+function xxxxxxxxxxxxx(){
+    xxxxxxxxxx.addEventListener('click', () =>{
+        for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on the amount of elements with that class
+            boxClass[i].addEventListener('mouseover', (boxClass) => {
+                boxClass.target.classList.toggle('hover'); // *1
+            }); 
+        }
+    });
+}
+xxxxxxxxxxxxx()
+*/
+
+//New Grid Size Drop Down
+//New Grid Size Text Field
 
 /*
 Sites Used:
@@ -63,6 +97,12 @@ https://www.w3schools.com/jsref/met_element_queryselectorall.asp
 https://stackoverflow.com/questions/24219702/struggling-with-classlist-add-and-getelementsbyclassname
 https://www.w3schools.com/jsref/event_onmouseout.asp
 https://www.w3schools.com/jsref/prop_style_border.asp
+
+Button Events:
+clearButton:
+https://www.geeksforgeeks.org/how-to-remove-all-classes-that-begin-with-a-certain-string-in-javascript/
+https://clubmate.fi/remove-a-class-name-from-multiple-elements-with-pure-javascript/ <-- CLEAR BUTTON BASICALLY
+https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
 */
 
 /*
