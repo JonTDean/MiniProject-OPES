@@ -7,7 +7,8 @@ function divGen(area){
     tSqGrid = area ** 2;
 
     //Organizes grid content
-    divGenContainer.style.gridTemplateColumns = `repeat(${width}, 40px)`;
+    divGenContainer.style.gridTemplateColumns = `repeat(${area}, 1fr)`;
+    divGenContainer.style.gridTemplateRows = `repeat(${area}, 1fr)`;
     
     //Generates a static amount of divs filled with the set properties.
     for( i = 0 ; i < tSqGrid; i++ ){
@@ -50,15 +51,15 @@ function clearGrid(){
 //newGrid
 function newGridInput(){
         //Grabs Values from input boxes
-    newGridInputHeightValue = document.getElementById('input_customGridHeight').value;
-    newGridInputWidthValue = document.getElementById('input_customGridWidth').value;
+    newGridAreaValue = document.getElementById('input_customGridArea').value;
         //console.log(`The Height is ${newGridInputHeightValue}, The Width is ${newGridInputWidthValue}`);
 
         //Makes an adjustable Container size based on the given values.
-    divGenContainer.style.gridTemplateColumns = `repeat(${newGridInputWidthValue}, 1fr)`;
+    divGenContainer.style.gridTemplateColumns = `repeat(${newGridAreaValue}, 1fr)`;
+    divGenContainer.style.gridTemplateRows = `repeat(${newGridAreaValue}, 1fr)`;
     
         //Total Value
-    newGridValue = Number(newGridInputWidthValue) + Number(newGridInputHeightValue);
+    //newGridValue = Number(newGridInputWidthValue) + Number(newGridInputHeightValue);
         //console.log(newGridValue);
 
         //removes old container in order to put new boxes in
@@ -69,7 +70,7 @@ function newGridInput(){
     }
 
     //Calls divGen with new properties
-    divGen(newGridInputHeightValue, newGridInputWidthValue);
+    divGen(newGridAreaValue);
 }
 
 // MAIN FUNCTION STARTS HERE
