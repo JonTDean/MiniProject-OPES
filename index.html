@@ -18,18 +18,29 @@
         </div>
         <div id="area_viewport">
             <div id="menus">
-                <div id="menu_buttons">
-                    <button type="button" id="button_Start">Start</button>
+                
+                <div id="menu_leftSideButtons">
                     <button type="button" id="button_clearGrid">Clear Grid</button>
                     <div id="menu_customGridSize">
                         <button type="button" id="button_newGridSize">New Grid Size</button>
-                        <p>How big do you want the grid to be?</p>
-                        <input type="text" id="input_customGridSize">
-                        <button type="submit" id="button_customGridSize"> enter</button>
+                        <div id="dropDown">
+                            <p>Enter Area of Grid</p>
+                            <input type="text" id="input_customGridArea" name ="customGridArea"  placeholder="16" value="16">
+                            <button type="submit" id="button_customGridSize"> enter</button>
+                        </div>
                     </div>            
                 </div>
-                <div id="rightSideMenus">
-                    <div id="colorPicker"></div>     
+
+                <div id="menu_rightSideButtons">
+                    <div id="colorPicker">
+                        <button type="button">Pick A Color</button>
+                    </div>
+                    <!--
+                    <button type="button" id="button_Start">Pause</button>
+                    <div class="class_penType">
+                        <button type="button" id="button_penType">Pick a Pen Type</button>
+                    </div>
+                    -->
                 </div>
             </div>
 

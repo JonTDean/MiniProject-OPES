@@ -1,21 +1,21 @@
-//r================================Div Generatorr================================
-function divGen(){
+//================================Div Generator================================
+divGenContainer = document.getElementById("container");
 
+//Div Generator Function
+function divGen(area){
+    //Combined values of grid measurements, Grid Area.
+    tSqGrid = area ** 2;
+
+    //Organizes grid content
+    divGenContainer.style.gridTemplateColumns = `repeat(${width}, 40px)`;
+    
     //Generates a static amount of divs filled with the set properties.
-    for( i = 0 ; i < 256; i++ ){
-        var box = document.createElement("div"); //creates a box variable that creates a div element.
-
-        box.style.width = "37.5px";
-        box.style.height = "37.5px";
-        box.style.border = "2px solid black";
-        box.className = "boxClass";
-        
-        document.getElementById("container").appendChild(box); //Grabs the element by ID and adds a div to it with the above properties.
+    for( i = 0 ; i < tSqGrid; i++ ){
+        box = document.createElement("div"); //creates a box variable that creates a div element.
+        box.className = "boxClass";       
+        container.appendChild(box); //Grabs the element by ID and adds a div to it with the above properties.
     }
 }
-
-divGen();
-//window.onload = load_divGen => { divGen();}; // When the pages loads, it loads the divGen() function.
 
 //================================Class Changer================================
 // Variables for Class Changer
@@ -23,90 +23,54 @@ var boxClass = document.querySelectorAll('.boxClass'); // Grabs an element with 
 
 //Class Changer Function
 function classChanger(){
-    for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on the amount of elements with that class
+    for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on how many elements have that class.
         boxClass[i].addEventListener('mouseover', (boxClass) => {
             boxClass.target.classList.add('hover'); // *1
-        }); 
-
-        //If I want to make an erase function:
-        /*     
-        boxClass[i].addEventListener('mouseout', (boxClass) => {
-            boxClass.target.classList.remove('hover')
-        });
-        */                                   
+        });                                
     }  
 }
-
 classChanger();
 
 //================================Button Events================================
 //Button Event Variables
-    //clearGrid Variables
+//clearGrid Variables
 btnClearGrid = document.querySelector('#button_clearGrid');
 btnClearGrid.addEventListener('click', (clearGrid));
-    //newGrid Variables
-    btnNewGrid = document.querySelector('"button_newGrid')
-//Button Event Functions
-    //clearGrid
+//newGrid Variables
+btnNewGridInput = document.querySelector('#button_customGridSize');
+btnNewGridInput.addEventListener('click', (newGridInput));
+
+//clearGrid
 function clearGrid(){
     for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on the amount of elements with that class
             boxClass[i].classList.remove('hover'); // *1
     }
+} 
+
+//newGrid
+function newGridInput(){
+        //Grabs Values from input boxes
+    newGridInputHeightValue = document.getElementById('input_customGridHeight').value;
+    newGridInputWidthValue = document.getElementById('input_customGridWidth').value;
+        //console.log(`The Height is ${newGridInputHeightValue}, The Width is ${newGridInputWidthValue}`);
+
+        //Makes an adjustable Container size based on the given values.
+    divGenContainer.style.gridTemplateColumns = `repeat(${newGridInputWidthValue}, 1fr)`;
+    
+        //Total Value
+    newGridValue = Number(newGridInputWidthValue) + Number(newGridInputHeightValue);
+        //console.log(newGridValue);
+
+        //removes old container in order to put new boxes in
+    childContainer = divGenContainer.lastElementChild;
+    while(childContainer){
+        divGenContainer.removeChild(childContainer);
+        childContainer = divGenContainer.lastElementChild;
+    }
+
+    //Calls divGen with new properties
+    divGen(newGridInputHeightValue, newGridInputWidthValue);
 }
-clearGrid();
 
-
-/* Made an Erase Button *//*
-
-btnEraseButton = document.querySelector('#button_eraseButton');
-
-function xxxxxxxxxxxxx(){
-    xxxxxxxxxx.addEventListener('click', () =>{
-        for( i = 0 ; i < boxClass.length ; i++ ){                // For loop to iterate over every boxClass based on the amount of elements with that class
-            boxClass[i].addEventListener('mouseover', (boxClass) => {
-                boxClass.target.classList.toggle('hover'); // *1
-            }); 
-        }
-    });
-}
-xxxxxxxxxxxxx()
-*/
-
-//New Grid Size Drop Down
-//New Grid Size Text Field
-
-/*
-Sites Used:
-
-DivGen:
-https://stackoverflow.com/questions/13885533/it-says-that-typeerror-document-getelementbyid-is-null
-https://css-tricks.com/snippets/css/complete-guide-grid/
-https://stackoverflow.com/questions/588040/window-onload-vs-document-onload
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined
-https://www.w3schools.com/html/html_css.asp
-https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
-
-ClassChanger:
-https://stackoverflow.com/questions/20306204/using-queryselector-with-ids-that-are-numbers
-https://stackoverflow.com/questions/43988484/mouseover-mouseout-w-javascript
-https://stackoverflow.com/questions/16821564/how-to-add-remove-class-on-mouseover-mouseout-jquery-hover/16821586
-https://stackoverflow.com/questions/35319636/document-queryselectorall-not-working <<IMPORTANT
-https://www.w3schools.com/jsref/met_document_queryselector.asp
-https://www.w3schools.com/jsref/met_element_queryselectorall.asp
-https://stackoverflow.com/questions/24219702/struggling-with-classlist-add-and-getelementsbyclassname
-https://www.w3schools.com/jsref/event_onmouseout.asp
-https://www.w3schools.com/jsref/prop_style_border.asp
-
-Button Events:
-clearButton:
-https://www.geeksforgeeks.org/how-to-remove-all-classes-that-begin-with-a-certain-string-in-javascript/
-https://clubmate.fi/remove-a-class-name-from-multiple-elements-with-pure-javascript/ <-- CLEAR BUTTON BASICALLY
-https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
-*/
-
-/*
-*1: Im fucking stupid, I was referencing only boxClass.classList without pointing it towards the correct object which was target.
- This was the original line I was using boxClass.classList.toggle('hover');
-
-*/
+// MAIN FUNCTION STARTS HERE
+divGen(16);

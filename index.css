@@ -68,9 +68,7 @@ html, body {
 /* Interactive Area*/
     /* Viewport Area */
         div#area_viewport{
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
             margin-bottom: 20px;
             padding-right: 370px;
         }
@@ -79,20 +77,22 @@ html, body {
         /* Center The Grid  GRABBED FROM: https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/*/
         /* Center CSS */
             span#center{
-                margin: 20px 20px 20px 20px;
-                width:  var(--grid-width);
-                height: var(--grid-height);
+                width:  100%;
+                height: 100%;
             }
 
         /* Grid Parent CSS Styles */
             #container{
                 display: grid;
-                margin: 0 20px 20px 20px;
+                margin: 20px 20px 20px 20px;
                 width:  var(--grid-width);
                 height: var(--grid-height);
-                grid-template-columns: repeat(16,40px) ;
 
             }
+            #container div {
+                background: white;
+                border: 1px solid black;
+              }
 
             div.boxClass{
                 background:#e0d8de;
@@ -106,11 +106,14 @@ html, body {
     /* Menu CSS Styles*/
             div#menus{
                 display: flex;
+                float: left;
                 flex-direction: column;
-                margin-right: 30px;
+                padding-left: 20%;
+                padding-right: 20px;
+                width: 275px;
             }
         /* Button Menu CSS Styles */
-            div#menu_buttons{
+            div#menu_leftSideButtons{
                 /* Content Organization */
                 display: inline-flex;
                 flex-direction: column;
@@ -119,7 +122,7 @@ html, body {
                 left: 25%;
             }
 
-            div#menu_buttons button{
+            div#menu_leftSideButtons button{
                 /* Colors */
                 color: rgba(255,255,255,1);                           
                 box-shadow: inset 0 0 1em rgba(174, 31, 29, 0.5), 0 0 1em rgba(174, 31, 29, 0.5);
@@ -141,6 +144,7 @@ html, body {
                 margin: 1em;
                 margin: 10px 0 10px 0;
             }
+
     /* Custom Grid Size Styles */
         /* Menu Button Styles*/
             div#menu_customGridSize{
@@ -156,6 +160,7 @@ html, body {
             }
             
             div#menu_customGridSize p{
+                text-align: center;
                 font-family: Oxanium;
                 color: white;
                 padding-bottom: 20px;
