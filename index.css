@@ -97,10 +97,11 @@ html, body {
             div.boxClass{
                 background:#e0d8de;
             }
+            
         
 
         /* OnHover Color Change */
-            div.hover{
+            #container div.hover{
                 background:black;
             }
     /* Menu CSS Styles*/

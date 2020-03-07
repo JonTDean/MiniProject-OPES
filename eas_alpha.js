@@ -101,9 +101,20 @@ https://stackoverflow.com/questions/14496531/adding-two-numbers-concatenates-the
 https://stackoverflow.com/questions/11563638/how-do-i-get-the-value-of-text-input-field-using-javascript
 https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
 https://www.w3schools.com/cssref/tryit.asp?filename=trycss_js_grid-template-rows
-
+https://gomakethings.com/checking-event-target-selectors-with-event-bubbling-in-vanilla-javascript/
 Empty Container to start a new one:
 https://www.w3schools.com/jquery/html_empty.asp
+
+
+Refactoring for dynamic variables by using the DOM:
+https://gomakethings.com/checking-event-target-selectors-with-event-bubbling-in-vanilla-javascript/
+https://www.quirksmode.org/dom/events/mouseover.html
+https://medium.com/littlemanco/handling-dynamically-created-html-in-javascript-2746e02cc063
+https://stackoverflow.com/questions/19447734/get-children-of-element-using-javascript
+https://dev.to/shimphillip/handing-javascript-events-efficiently-with-bubble-and-capture-4ha5
+https://www.sitepoint.com/event-bubbling-javascript/
+https://www.quirksmode.org/js/events_mouse.html#relatedtarget
+https://stackoverflow.com/questions/31608928/event-target-classlist-doesnt-have-indexof-method
 */
 
 /*
